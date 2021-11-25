@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h5>
+        <strong>Home</strong>
+        <span style="position: absolute; right: 15px; top: 10px;">
+            <a href="{{ url_for('users.account') }}">
+                <img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/default_profile.jpg') }}" alt="Account">
+            </a>
+        </span>
+    </h5><br>
+    <hr>
+
+    <!-- New Post form -->
+    <div>
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/default_profile.jpg') }}" alt="Profile Image">
+                  </span>
+                </div>
+                {{ form.post(class="form-control post-textarea", placeholder="Post something...") }}
+            </div>
+            <a href="#" class="svg">
+                <span style="font-size: 25px;">
+                    <i class="far fa-image"></i>
+                </span>
+            </a>
+            <a href="#" class="svg">
+                <span style="font-size: 25px; margin-left: 10px;">
+                    <i class="far fa-chart-bar"></i>
+                </span>
+            </a>
+            <a href="#" class="svg">
+                <span style="font-size: 25px; margin-left: 10px;">
+                    <i class="far fa-smile"></i>
+                </span>
+            </a>
+            <span style="position: absolute; right: 15px; top: 170px;">{{ form.submit(class="btn btn-primary") }}</span>
+        </form>
+    </div><hr>
+
+    <!-- Show all posts -->
+    {% for post in posts %}
+        <div>
+            <p> <a class="a-name" href="{{ url_for('posts.user_posts', username=post.author.username) }}">{{ post.author.name }}</a> <small class="username">@{{ post.author.username }}</small> . <small>{{ post.date_posted.strftime('%Y-%m-%d') }}</small></p>
+            <p class="post-content">{{ post.post_content }}</p>
+            <a href="#" class="svg-posy">
+                <span style="font-size: 20px; margin-left: 40px;">
+                    <i class="far fa-comment"></i>
+                </span>
+            </a>
+            <a href="#" class="svg-post">
+                <span style="font-size: 20px; margin-left: 40px;">
+                    <i class="fas fa-retweet"></i>
+                </span>
+            </a>
+            <a href="#" class="svg-post">
+                <span style="font-size: 20px; margin-left: 40px;">
+                    <i class="far fa-heart"></i>
+                </span>
+            </a>
+            <a href="#" class="svg-post">
+                <span style="font-size: 20px; margin-left: 40px;">
+                    <i class="fas fa-external-link-alt"></i>
+                </span>
+            </a>
+            <hr>
+        </div>
+    {% endfor %}
+
+    {% if current_user.is_authenticated %}
+        <form action="{{ url_for('users.logout') }}">
+            <button class="btn btn-danger">Logout</button>
+        </form>
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,69 @@
+body {
+    margin: 10px;
+}
+
+#login-form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#signup-form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.left-side {
+    width: 50%;
+    float: left;
+    margin: 250px auto 250px auto;
+    text-align: center;
+}
+
+.right-side {
+    width: 50%;
+    float: right;
+    margin: 250px auto 250px auto;
+}
+
+.username {
+    color: teal;
+}
+
+.a-name {
+    color: black;
+    font-weight: 500;
+}
+
+.post-content {
+    margin-left: 40px;
+}
+
+.a-name:hover {
+    color: black;
+}
+
+.profile-pic {
+    width: 35px;
+}
+
+.profile-pic-account {
+    width: 40px;
+}
+
+.svg {
+    color: rgb(95, 122, 129);
+}
+
+.svg:hover {
+    text-decoration: none;
+    color: rgb(95, 180, 228);
+}
+
+.svg-post {
+    color: gray;
+}
+
+.svg-post:hover {
+    text-decoration: none;
+    color: gray;
+}

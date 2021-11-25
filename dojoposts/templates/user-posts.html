@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h4>Name: <small>{{ user.username }}</small></h4>
+    <h4>Profile: <img class="rounded-circle article-img profile-pic-account" src="{{ url_for('static', filename='profile-pictures/default_profile.jpg') }}" alt="profile-image"></h4>
+    <h4>Username: <small>{{ user.username }}</small></h4><hr>
+
+    <h3>{{ user.username }} posts</h3><br>
+
+    <!-- Show all posts -->
+    {% for post in posts %}
+        <div>
+            <p><strong class="a-name"> {{ post.author.name }}</strong><small class="username">@{{ post.author.username }}</small> . <small>{{ post.date_posted.strftime('%Y-%m-%d') }} </small> </p>
+            <p class="post-content">{{ post.post_content }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
