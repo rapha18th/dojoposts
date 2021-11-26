@@ -3,6 +3,33 @@
 {% block content %}
     <div class="left-side">
         <strong>Posts:</strong><br><br>
+    {% for post in posts %}
+        <div>
+            <p> <a class="a-name" href="{{ url_for('posts.user_posts', username=post.author.username) }}">{{ post.author.name }}</a> <small class="username">@{{ post.author.username }}</small> . <small>{{ post.date_posted.strftime('%Y-%m-%d') }}</small></p>
+            <p class="post-content">{{ post.post_content }}</p>
+            <a href="#" class="svg-posy">
+                <span style="font-size: 20px; margin-left: 40px;">
+                    <i class="far fa-comment"></i>
+                </span>
+            </a>
+            <a href="#" class="svg-post">
+                <span style="font-size: 20px; margin-left: 40px;">
+                    <i class="fas fa-retweet"></i>
+                </span>
+            </a>
+            <a href="#" class="svg-post">
+                <span style="font-size: 20px; margin-left: 40px;">
+                    <i class="far fa-heart"></i>
+                </span>
+            </a>
+            <a href="#" class="svg-post">
+                <span style="font-size: 20px; margin-left: 40px;">
+                    <i class="fas fa-external-link-alt"></i>
+                </span>
+            </a>
+            <hr>
+        </div>
+    {% endfor %}
 
     </div>
 
