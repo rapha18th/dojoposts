@@ -21,7 +21,7 @@
                     <img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/default_profile.jpg') }}" alt="Profile Image">
                   </span>
                 </div>
-                {{ form.post(class="form-control post-textarea", placeholder="Post something...") }}
+                {{ form.post(class="form-control post-textarea", placeholder="Post something...", max=255)}}
             </div>
             <a href="#" class="svg">
                 <span style="font-size: 25px;">
